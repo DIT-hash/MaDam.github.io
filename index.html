@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
+    <meta charset="UTF-8">
     <title>MaDam.github.io</title>
+</head>
+    <body>
+        
+        <script>
+            var segong = new Array();//세공 레벨
+            var LancRange = 700;//랜차 1랭크 마상 최대거리 기본 퍼뎀
+            var LancWeapon = 0;//랜차 주목뎀 1렙당 2.5%
+            var LancPet =  0;//랜차 마상 돌진대미지 1렙당 3%
+            var LancDiv = 1.15;//디바인 스몰랜스 강화효과 115%
+            var LacnHand = 0;//랜차 장갑,악세 랜차뎀 레벨당4%
+            var LancBoot = 0;//랜차신발 거리
+            var damege = 100;
+            segong[0] = 20;
+            segong[1] = 20;
+            segong[2] = 26;
+            segong[3] = 20;
     
-    <details>
-        <summary>랜스차지</summary>
-        <p>랜스차지 데미지</p>
-    </details>
-    
+            LancWeapon = segong[0]*0.025; //주목뎀 레벨당 최대 50%
+            LancPet = segong[1]*0.03; //마상뎀 레벨당 최대 60%
+            LacnHand = segong[2]*0.04;//랜차장갑,악세 레벨당 최대 104%
+            LancBoot = segong[3]*0.033; //랜차신발 거리 최대 66%
+            //700*(1+0.468)*(1+0.33)*(1+0.28+0.60)=2569%*(랜스차지 강화효과1.15) 풀세공 기준 계산식
+            var LancResult = damege*(700*(1+LacnHand)*(1+LancBoot)*(1+LancWeapon+LancPet));
+            document.write(LancResult);
+            document.write("<br>",700*(1+LacnHand)*(1+LancBoot)*(1+LancWeapon+LancPet));
+            document.write("<br>장갑",LacnHand);
+            document.write("<br>신발",LancBoot);
+            document.write("<br>무기",LancWeapon);
+            document.write("<br>마상",LancPet);
+        </script>
+   
     </body>
 </html>
